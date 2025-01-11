@@ -16,25 +16,9 @@ public class p2525 {
         int minute = Integer.parseInt(st.nextToken());
         int duration = Integer.parseInt(br.readLine());
 
-        int newHour = hour;
-        int newMinute;
-
-        if (minute + duration < 60) {
-            newMinute = minute + duration;
-        } else {
-            if (hour == 23) {
-                newHour = 0;
-            } else {
-                newHour = hour + 1;
-            }
-            newMinute = minute + duration - 60;
-        }
-
-        if (newMinute > 59) {
-            newMinute = newMinute % 60;
-            int leftHour = newMinute / 60;
-            if (newHour)
-        }
+        int totalMinute = (hour * 60) + minute + duration;
+        int newHour = (totalMinute / 60) % 24;
+        int newMinute = totalMinute % 60;
 
         bw.write(newHour + " " + newMinute);
         bw.flush();
