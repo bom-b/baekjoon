@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class p10818 {
@@ -13,17 +14,14 @@ public class p10818 {
 
         int length = Integer.parseInt(br.readLine());
 
-        int min = 1000000;
-        int max = -1000000;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
 
         StringTokenizer line2 = new StringTokenizer(br.readLine());
         while (line2.hasMoreTokens()) {
             int num = Integer.parseInt(line2.nextToken());
-            if (num <= min) {
-                min = num;
-            } else if (num >= max) {
-                max = num;
-            }
+            min = Integer.min(min, num);
+            max = Integer.max(max, num);
         }
 
         bw.write(min + " " + max);
