@@ -12,25 +12,24 @@ public class p10811 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringTokenizer line1 = new StringTokenizer(br.readLine());
-        int bucketCnt = Integer.parseInt(line1.nextToken());
-        int repeatCnt= Integer.parseInt(line1.nextToken());
+        StringTokenizer prob = new StringTokenizer(br.readLine());
+        int bucketCnt = Integer.parseInt(prob.nextToken());
+        int repeatCnt = Integer.parseInt(prob.nextToken());
 
         int[] bucketArr = new int[bucketCnt];
-        Arrays.setAll(bucketArr, i -> i + 1);
+        Arrays.setAll(bucketArr, i -> i +1);
 
         for (int i = 0; i < repeatCnt; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int startIndex = Integer.parseInt(st.nextToken()) -1;
-            int endIndex = Integer.parseInt(st.nextToken()) -1;
-            int changeRange = endIndex - startIndex + 1;
+            StringTokenizer st  = new StringTokenizer(br.readLine());
+            int startIndex = Integer.parseInt(st.nextToken()) - 1;
+            int endIndex = Integer.parseInt(st.nextToken()) - 1;
 
-            int[] temp = new int[changeRange];
-            for (int j = startIndex; j <= endIndex; j++) {
-                temp[endIndex - 1] = bucketArr[j - 1];
-            }
-            for (int j = startIndex - 1; j < changeRange; j++) {
-                bucketArr[i] = temp[i];
+            while (startIndex < endIndex) {
+                int temp = bucketArr[startIndex];
+                bucketArr[startIndex] = bucketArr[endIndex];
+                bucketArr[endIndex] = temp;
+                startIndex ++;
+                endIndex --;
             }
         }
 
