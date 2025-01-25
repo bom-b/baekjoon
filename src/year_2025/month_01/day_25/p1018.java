@@ -1,4 +1,4 @@
-package year_2025.month_01.day_23;
+package year_2025.month_01.day_25;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
